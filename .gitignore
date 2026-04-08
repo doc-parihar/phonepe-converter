@@ -1,0 +1,18 @@
+*.pdf
+*.csv
+*.json
+*.xlsx
+__pycache__/
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Standard Python ignores
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
