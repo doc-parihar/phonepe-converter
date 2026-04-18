@@ -82,11 +82,16 @@ def parse_transactions(text):
         if details_match:
             details = details_match.group(1).strip()
             
+        # 8. Bank Account
+        account_match = re.search(r"(?:Debited|Credited) (?:from|to)\s+([a-zA-Z0-9*]+)", block)
+        bank_account = account_match.group(1) if account_match else ""
+            
         parsed_data.append({
             "Date": date,
             "Time": time_str,
             "Details": details,
             "Type": type_str,
+            "Bank Account": bank_account,
             "Amount (INR)": float(amount.replace(',', '')) if amount else 0.0,
             "Transaction ID": tx_id,
             "UTR No": utr_no
